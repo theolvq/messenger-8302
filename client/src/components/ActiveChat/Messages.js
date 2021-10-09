@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Box } from "@material-ui/core";
 import { SenderBubble, OtherUserBubble } from "../ActiveChat";
 import moment from "moment";
@@ -6,15 +6,9 @@ import moment from "moment";
 const Messages = (props) => {
   const { messages, otherUser, userId } = props;
 
-  const sortedMessages = useMemo(
-    () =>
-      messages.sort((curr, next) => (curr.createdAt > next.createdAt ? 1 : -1)),
-    [messages]
-  );
-
   return (
     <Box>
-      {sortedMessages.map((message) => {
+      {messages.map((message) => {
         const time = moment(message.createdAt).format("h:mm");
 
         return message.senderId === userId ? (
