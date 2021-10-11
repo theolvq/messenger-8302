@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     justifyContent: "center",
@@ -8,6 +8,9 @@ export const useStyles = makeStyles(() => ({
     width: "100%",
   },
   hero: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
     backgroundImage:
       "linear-gradient(to bottom, #3A8DFFD9, #86B9FFD9),  url(https://res.cloudinary.com/diswlgneg/image/upload/v1633815148/bg-img_i2xyym.png) ",
     backgroundRepeat: "no-repeat",
@@ -23,15 +26,19 @@ export const useStyles = makeStyles(() => ({
     width: "45%",
   },
   main: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
     height: "100vh",
     width: "55%",
     justifyContent: "center",
   },
   top: {
-    padding: "1.875rem 2.625rem",
+    padding: "1rem",
     alignSelf: "flex-start",
     alignItems: "center",
     justifyContent: "flex-end",
+    gap: "2rem",
   },
   lightText: {
     color: "#B0B0B0",
@@ -44,10 +51,10 @@ export const useStyles = makeStyles(() => ({
   },
   switchBtn: {
     boxShadow: "0px 3px 5px -3px #3A8DFF66",
-    marginLeft: "4rem",
+    padding: "1rem 2rem",
   },
   form: {
-    width: "358px",
+    width: "60%",
     margin: "0 auto",
   },
   formContainer: {
@@ -57,10 +64,10 @@ export const useStyles = makeStyles(() => ({
     gap: "2.375rem",
   },
   formTitle: {
-    marginBottom: "2rem",
+    marginBottom: "4rem",
     fontWeight: 600,
   },
   inputContainer: {
-    gap: "2.625rem",
+    gap: "3rem",
   },
 }));

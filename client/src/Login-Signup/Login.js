@@ -21,10 +21,10 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
-    const emailAddress = event.target.emailAddress.value;
+    const email = event.target.email.value;
     const password = event.target.password.value;
 
-    await login({ username, password });
+    await login({ username, password, email });
   };
 
   if (user.id) {
@@ -49,9 +49,9 @@ const Login = (props) => {
               Don't have an account?
             </Typography>
             <Button
+              className={classes.switchBtn}
               size="large"
               color="primary"
-              className={classes.switchBtn}
               onClick={() => history.push("/register")}>
               Create account
             </Button>
@@ -66,7 +66,7 @@ const Login = (props) => {
                   <TextField
                     aria-label="E-mail address"
                     label="E-mail address"
-                    name="emailAddress"
+                    name="email"
                     type="text"
                   />
                 </FormControl>
@@ -92,11 +92,11 @@ const Login = (props) => {
               </Grid>
               <Grid item>
                 <Button
+                  className={classes.loginBtn}
                   type="submit"
                   variant="contained"
                   color="primary"
-                  size="large"
-                  className={classes.loginBtn}>
+                  size="large">
                   Login
                 </Button>
               </Grid>
