@@ -10,7 +10,7 @@ export const theme = createTheme({
       fontWeight: 600,
     },
     h2: {
-      fontSize: "1.625rem",
+      fontSize: "2rem",
     },
   },
   overrides: {
@@ -34,7 +34,7 @@ export const theme = createTheme({
         },
         "&$shrink": {
           color: "#B0B0B0",
-          transform: "translate(0.25rem, -1rem)",
+          transform: "translate(0, -1rem)",
         },
       },
     },

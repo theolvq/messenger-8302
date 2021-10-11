@@ -17,13 +17,17 @@ export const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     height: "100vh",
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     gap: "2.5rem",
     color: "white",
     textAlign: "center",
     width: "45%",
+  },
+  speechBubble: {
+    position: "absolute",
+    top: "28%",
+    width: "5rem",
   },
   main: {
     [theme.breakpoints.down("sm")]: {
@@ -32,21 +36,29 @@ export const useStyles = makeStyles((theme) => ({
     height: "100vh",
     width: "55%",
     justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
   },
   top: {
-    padding: "1rem",
-    alignSelf: "flex-start",
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem",
+      gap: "1rem",
+    },
+    padding: "2rem 3rem",
     alignItems: "center",
     justifyContent: "flex-end",
-    gap: "1rem",
+    gap: "2.5rem",
+    position: "absolute",
+    top: 0,
   },
   lightText: {
     color: "#B0B0B0",
   },
   loginBtn: {
-    fontFamily: "Montserrat",
-    margin: "2rem",
-    padding: "1rem 3.5rem",
+    fontFamily: "Montserrat, sans-serif",
+    fontSize: "1rem",
+    marginTop: "2rem",
+    padding: "1.25rem 4rem",
     boxShadow: "none",
   },
   switchBtn: {
@@ -55,7 +67,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "60%",
-    margin: "0 auto",
   },
   formContainer: {
     display: "flex",
@@ -64,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     gap: "2.375rem",
   },
   formTitle: {
-    marginBottom: "4rem",
+    margin: "3rem 0",
     fontWeight: 600,
   },
   inputContainer: {

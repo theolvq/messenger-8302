@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { register } from "../store/utils/thunkCreators";
 import { useStyles } from "./Styles";
+import Hero from "./Hero";
 
 const Login = (props) => {
   const history = useHistory();
@@ -41,15 +42,7 @@ const Login = (props) => {
   return (
     <Grid container justify="center">
       <Box className={classes.container}>
-        <Grid className={classes.hero} container item>
-          <img
-            src="https://res.cloudinary.com/diswlgneg/image/upload/v1633837554/bubble_xssqyw.svg"
-            alt="speech bubble icon"
-          />
-          <Typography className={classes.slogan} variant="h2">
-            Converse with anyone <br /> with any language.
-          </Typography>
-        </Grid>
+        <Hero />
         <Grid className={classes.main} container item>
           <Grid container className={classes.top}>
             <Typography variant="body2" className={classes.lightText}>
