@@ -38,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     alignSelf: "flex-start",
     alignItems: "center",
     justifyContent: "flex-end",
-    gap: "2rem",
+    gap: "1rem",
   },
   lightText: {
     color: "#B0B0B0",
