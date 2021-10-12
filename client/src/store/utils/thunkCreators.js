@@ -74,7 +74,7 @@ export const fetchConversations = () => async (dispatch) => {
     const { data } = await axios.get("/api/conversations");
     const sortedData = data.map((convo) => ({
       ...convo,
-      messages: [...convo.messages].sort((curr, next) =>
+      messages: convo.messages.sort((curr, next) =>
         curr.createdAt > next.createdAt ? 1 : -1
       ),
     }));

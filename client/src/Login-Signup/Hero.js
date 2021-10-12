@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <Grid className={classes.hero} container item>
       <img
-        src="https://res.cloudinary.com/diswlgneg/image/upload/v1633837554/bubble_xssqyw.svg"
+        src="https://res.cloudinary.com/daawascript/image/upload/v1633837554/bubble_xssqyw.svg"
         alt="speech bubble icon"
         className={classes.speechBubble}
       />

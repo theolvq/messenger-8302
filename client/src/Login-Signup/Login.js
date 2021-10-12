@@ -22,10 +22,10 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
-    const email = event.target.email.value;
+    // const email = event.target.email.value;
     const password = event.target.password.value;
 
-    await login({ username, password, email });
+    await login({ username, password });
   };
 
   if (user.id) {
@@ -55,11 +55,19 @@ const Login = (props) => {
             </Typography>
             <Grid container className={classes.formContainer}>
               <Grid container item className={classes.inputContainer}>
-                <FormControl required fullWidth>
+                {/* <FormControl required fullWidth>
                   <TextField
                     aria-label="E-mail address"
                     label="E-mail address"
                     name="email"
+                    type="text"
+                  />
+                </FormControl> */}
+                <FormControl required fullWidth>
+                  <TextField
+                    aria-label="username"
+                    label="Username"
+                    name="username"
                     type="text"
                   />
                 </FormControl>
