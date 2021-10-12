@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
-import { useStyles } from "./Styles";
+import { useStyles } from "./styles";
 
 const Hero = () => {
   const classes = useStyles();

@@ -11,7 +11,7 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 import { login } from "../store/utils/thunkCreators";
-import { useStyles } from "./Styles";
+import { useStyles } from "./styles";
 import Hero from "./Hero";
 
 const Login = (props) => {
