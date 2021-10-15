@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
 const Input = (props) => {
   const classes = useStyles();
   const [text, setText] = useState("");
+  const [attachments, setAttachments] = useState([]);
   const { postMessage, otherUser, conversationId, user } = props;
 
   const handleChange = (event) => {
@@ -35,9 +36,11 @@ const Input = (props) => {
       recipientId: otherUser.id,
       conversationId,
       sender: conversationId ? null : user,
+      attachments,
     };
     await postMessage(reqBody);
     setText("");
+    setAttachments([]);
   };
 
   return (
@@ -52,7 +55,12 @@ const Input = (props) => {
           onChange={handleChange}
         />
       </FormControl>
-      <Dropzone />
+      <Dropzone setAttachments={setAttachments} />
+      <div>
+        {attachments.map((image) => (
+          <img key={image} src={image} alt={image} />
+        ))}
+      </div>
     </form>
   );
 };
