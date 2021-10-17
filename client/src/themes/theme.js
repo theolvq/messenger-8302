@@ -38,6 +38,11 @@ export const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      root: {
+        minWidth: 0,
+      },
+    },
   },
   palette: {
     primary: { main: "#3A8DFF" },

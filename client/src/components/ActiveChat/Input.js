@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { FormControl, FilledInput } from "@material-ui/core";
+import { FormControl, FilledInput, Button, Grid } from "@material-ui/core";
+import { Cancel } from "@material-ui/icons";
+import { Image, Transformation } from "cloudinary-react";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { postMessage } from "../../store/utils/thunkCreators";
@@ -15,6 +17,18 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#F4F6FA",
     borderRadius: 8,
     marginBottom: 20,
+  },
+  imagePreview: {
+    position: "relative",
+    marginLeft: ".75rem",
+  },
+  deleteBtn: {
+    position: "absolute",
+    borderRadius: "50%",
+    height: "24px",
+    width: "24px",
+    top: "-10px",
+    right: "-10px",
   },
 }));
 
@@ -43,6 +57,10 @@ const Input = (props) => {
     setAttachments([]);
   };
 
+  const deletePicture = (picId) => {
+    setAttachments((prev) => prev.filter((picture) => picture !== picId));
+  };
+
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
       <FormControl fullWidth hiddenLabel>
@@ -53,14 +71,25 @@ const Input = (props) => {
           value={text}
           name="text"
           onChange={handleChange}
+          endAdornment={
+            <React.Fragment>
+              {attachments.map((image) => (
+                <Grid className={classes.imagePreview}>
+                  <Image key={image} publicId={image.slice(52, -4)} alt={image}>
+                    <Transformation height="60" crop="fill" radius="10" />
+                  </Image>
+                  <Button
+                    className={classes.deleteBtn}
+                    onClick={() => deletePicture(image)}>
+                    <Cancel color="secondary" />
+                  </Button>
+                </Grid>
+              ))}
+              <Dropzone postion="end" setAttachments={setAttachments} />
+            </React.Fragment>
+          }
         />
       </FormControl>
-      <Dropzone setAttachments={setAttachments} />
-      <div>
-        {attachments.map((image) => (
-          <img key={image} src={image} alt={image} />
-        ))}
-      </div>
     </form>
   );
 };
