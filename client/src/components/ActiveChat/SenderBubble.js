@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
+import AttachedImages from "./AttachedImages";
+import { CloudinaryContext } from "cloudinary-react";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -20,6 +22,7 @@ const useStyles = makeStyles(() => ({
     letterSpacing: -0.2,
     padding: 8,
     fontWeight: "bold",
+    textAlign: "right",
   },
   bubble: {
     background: "#F4F6FA",
@@ -34,11 +37,17 @@ const SenderBubble = (props) => {
     <Box className={classes.root}>
       <Typography className={classes.date}>{time}</Typography>
       <Box className={classes.bubble}>
-        <Typography className={classes.text}>{text}</Typography>
-        {attachments &&
-          attachments.map((attachment) => (
-            <img key={attachment} src={attachment} alt={attachment} />
-          ))}
+        {(!attachments || attachments.length > 1) && (
+          <Typography className={classes.text}>{text}</Typography>
+        )}
+        <CloudinaryContext cloudName="daawascript">
+          {attachments && (
+            <AttachedImages attachments={attachments} text={text} />
+          )}
+        </CloudinaryContext>
+        {attachments && attachments.length === 1 && (
+          <Typography className={classes.text}>{text}</Typography>
+        )}
       </Box>
     </Box>
   );

@@ -3,7 +3,7 @@ import { FormControl, FilledInput } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { postMessage } from "../../store/utils/thunkCreators";
-import Dropzone from "../Dropzone";
+import Dropzone from "./Dropzone";
 
 const useStyles = makeStyles(() => ({
   root: {
