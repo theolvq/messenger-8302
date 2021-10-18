@@ -75,7 +75,7 @@ const Input = (props) => {
             <React.Fragment>
               {attachments.map((image) => (
                 <Grid className={classes.imagePreview}>
-                  <Image key={image} publicId={image.slice(52, -4)} alt={image}>
+                  <Image key={image} publicId={image.slice(52)} alt={image}>
                     <Transformation height="60" crop="fill" radius="10" />
                   </Image>
                   <Button
