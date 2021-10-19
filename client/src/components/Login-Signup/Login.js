@@ -10,7 +10,7 @@ import {
   TextField,
   InputAdornment,
 } from "@material-ui/core";
-import { login } from "../store/utils/thunkCreators";
+import { login } from "../../store/utils/thunkCreators";
 import { useStyles } from "./styles";
 import Hero from "./Hero";
 
@@ -22,7 +22,6 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
-    // const email = event.target.email.value;
     const password = event.target.password.value;
 
     await login({ username, password });
@@ -55,14 +54,6 @@ const Login = (props) => {
             </Typography>
             <Grid container className={classes.formContainer}>
               <Grid container item className={classes.inputContainer}>
-                {/* <FormControl required fullWidth>
-                  <TextField
-                    aria-label="E-mail address"
-                    label="E-mail address"
-                    name="email"
-                    type="text"
-                  />
-                </FormControl> */}
                 <FormControl required fullWidth>
                   <TextField
                     aria-label="username"

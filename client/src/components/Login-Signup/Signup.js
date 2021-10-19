@@ -10,7 +10,7 @@ import {
   TextField,
   FormHelperText,
 } from "@material-ui/core";
-import { register } from "../store/utils/thunkCreators";
+import { register } from "../../store/utils/thunkCreators";
 import { useStyles } from "./styles";
 import Hero from "./Hero";
 

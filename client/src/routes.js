@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchUser } from "./store/utils/thunkCreators";
-import Signup from "./Login-Signup/Signup.js";
-import Login from "./Login-Signup/Login.js";
+import Signup from "./components/Login-Signup/Signup.js";
+import Login from "./components/Login-Signup/Login.js";
 import { Home, SnackbarError } from "./components";
 
 const Routes = (props) => {
