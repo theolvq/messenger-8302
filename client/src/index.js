@@ -5,8 +5,10 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { CloudinaryContext } from "cloudinary-react";
 
+const CLOUD_NAME = process.env.REACT_APP_CLOUD_NAME;
+
 ReactDOM.render(
-  <CloudinaryContext cloudName="daawascript">
+  <CloudinaryContext cloudName={CLOUD_NAME}>
     <App />
   </CloudinaryContext>,
 

@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import AttachedImages from "./AttachedImages";
-import { CloudinaryContext } from "cloudinary-react";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -40,11 +39,9 @@ const SenderBubble = (props) => {
         {(!attachments || attachments.length > 1) && (
           <Typography className={classes.text}>{text}</Typography>
         )}
-        <CloudinaryContext cloudName="daawascript">
-          {attachments && (
-            <AttachedImages attachments={attachments} text={text} />
-          )}
-        </CloudinaryContext>
+        {attachments && (
+          <AttachedImages attachments={attachments} text={text} />
+        )}
         {attachments && attachments.length === 1 && (
           <Typography className={classes.text}>{text}</Typography>
         )}

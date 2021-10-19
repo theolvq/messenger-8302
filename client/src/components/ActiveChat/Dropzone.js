@@ -10,6 +10,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
+
 const Dropzone = (props) => {
   const classes = useStyles();
   const { setAttachments } = props;
@@ -18,7 +20,7 @@ const Dropzone = (props) => {
     try {
       const formData = new FormData();
       formData.append("file", image);
-      formData.append("upload_preset", "preset1");
+      formData.append("upload_preset", PRESET);
       formData.append("folder", "messenger-hatchways");
 
       const { data } = await axios.post(

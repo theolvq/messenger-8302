@@ -72,10 +72,10 @@ const Input = (props) => {
           name="text"
           onChange={handleChange}
           endAdornment={
-            <React.Fragment>
+            <>
               {attachments.map((image) => (
-                <Grid className={classes.imagePreview}>
-                  <Image key={image} publicId={image.slice(52)} alt={image}>
+                <Grid key={image} className={classes.imagePreview}>
+                  <Image publicId={image.slice(52)} alt={image}>
                     <Transformation height="60" crop="fill" radius="10" />
                   </Image>
                   <Button
@@ -86,7 +86,7 @@ const Input = (props) => {
                 </Grid>
               ))}
               <Dropzone postion="end" setAttachments={setAttachments} />
-            </React.Fragment>
+            </>
           }
         />
       </FormControl>
