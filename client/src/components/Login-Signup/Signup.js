@@ -40,7 +40,7 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Box className={classes.container}>
         <Hero />
         <Grid className={classes.main} container item>

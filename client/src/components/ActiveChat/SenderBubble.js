@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
-import AttachedImages from "./AttachedImages";
+import Bubble from "./Bubble";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -35,17 +35,7 @@ const SenderBubble = (props) => {
   return (
     <Box className={classes.root}>
       <Typography className={classes.date}>{time}</Typography>
-      <Box className={classes.bubble}>
-        {(!attachments || attachments.length > 1) && (
-          <Typography className={classes.text}>{text}</Typography>
-        )}
-        {attachments && (
-          <AttachedImages attachments={attachments} text={text} />
-        )}
-        {attachments && attachments.length === 1 && (
-          <Typography className={classes.text}>{text}</Typography>
-        )}
-      </Box>
+      <Bubble classes={classes} text={text} attachments={attachments} />
     </Box>
   );
 };

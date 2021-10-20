@@ -25,6 +25,7 @@ const AttachedImages = (props) => {
               height={height}
               width={width}
               crop="fill"
+              gravity="north"
               radius={radius}
             />
           </Image>
