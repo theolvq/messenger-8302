@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
       display: "none",
     },
     backgroundImage:
-      "linear-gradient(to bottom, #3A8DFFD9, #86B9FFD9),  url(https://res.cloudinary.com/diswlgneg/image/upload/v1633815148/bg-img_i2xyym.png) ",
+      "linear-gradient(to bottom, #3A8DFFD9, #86B9FFD9),  url(https://res.cloudinary.com/daawascript/image/upload/v1633815148/bg-img_i2xyym.png) ",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     height: "100vh",

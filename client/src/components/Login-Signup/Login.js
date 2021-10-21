@@ -10,7 +10,7 @@ import {
   TextField,
   InputAdornment,
 } from "@material-ui/core";
-import { login } from "../store/utils/thunkCreators";
+import { login } from "../../store/utils/thunkCreators";
 import { useStyles } from "./styles";
 import Hero from "./Hero";
 
@@ -22,10 +22,9 @@ const Login = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const username = event.target.username.value;
-    const email = event.target.email.value;
     const password = event.target.password.value;
 
-    await login({ username, password, email });
+    await login({ username, password });
   };
 
   if (user.id) {
@@ -33,7 +32,7 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Box className={classes.container}>
         <Hero />
         <Grid container className={classes.main}>
@@ -57,9 +56,9 @@ const Login = (props) => {
               <Grid container item className={classes.inputContainer}>
                 <FormControl required fullWidth>
                   <TextField
-                    aria-label="E-mail address"
-                    label="E-mail address"
-                    name="email"
+                    aria-label="username"
+                    label="Username"
+                    name="username"
                     type="text"
                   />
                 </FormControl>

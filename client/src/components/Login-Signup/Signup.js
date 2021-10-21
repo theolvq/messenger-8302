@@ -10,7 +10,7 @@ import {
   TextField,
   FormHelperText,
 } from "@material-ui/core";
-import { register } from "../store/utils/thunkCreators";
+import { register } from "../../store/utils/thunkCreators";
 import { useStyles } from "./styles";
 import Hero from "./Hero";
 
@@ -40,7 +40,7 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Box className={classes.container}>
         <Hero />
         <Grid className={classes.main} container item>
