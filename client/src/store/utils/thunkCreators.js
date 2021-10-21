@@ -129,19 +129,21 @@ export const searchUsers = (searchTerm) => async (dispatch) => {
 // EXTERNAL API CALL
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 
-export const uploadImage = async (image) => {
-  try {
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", PRESET);
-    formData.append("folder", "messenger-hatchways");
+export const uploadImages = async (images) => {
+  return await images.map(async (image) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", PRESET);
+      formData.append("folder", "messenger-hatchways");
 
-    const { data } = await axios.post(
-      "https://api.cloudinary.com/v1_1/daawascript/upload",
-      formData
-    );
-    return data.secure_url;
-  } catch (err) {
-    console.error(err);
-  }
+      const { data } = await axios.post(
+        "https://api.cloudinary.com/v1_1/daawascript/upload",
+        formData
+      );
+      return data.secure_url;
+    } catch (err) {
+      console.error(err);
+    }
+  });
 };

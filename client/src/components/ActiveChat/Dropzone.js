@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Button, makeStyles } from "@material-ui/core";
 import { Image } from "@material-ui/icons";
 import { useDropzone } from "react-dropzone";
-import { uploadImage } from "../../store/utils/thunkCreators";
+import { uploadImages } from "../../store/utils/thunkCreators";
 
 const useStyles = makeStyles(() => ({
   uploadButton: {
@@ -16,8 +16,7 @@ const Dropzone = (props) => {
 
   const onDrop = useCallback(
     async (images) => {
-      const promises = images.map(async (image) => await uploadImage(image));
-      const urls = await Promise.all(promises);
+      const urls = await Promise.all(await uploadImages(images));
       setAttachments((prev) => prev.concat(urls));
     },
     [setAttachments]
